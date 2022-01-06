@@ -1,0 +1,181 @@
+.bg{
+    padding: 10px;
+    position: relative;
+}
+.layout{
+    display: flex;   
+    align-items: flex-end;
+
+    .column{
+        width: 70%;
+
+        .no-border-rectangle{
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 89px;
+
+            .logo{
+                text-align: left;
+                font-size: 40px;
+                margin-bottom: 10px;
+                
+                h1, h6{
+                    color: white;
+                    margin: 10px;
+                }
+
+                h6{
+                    font-size: 15px;
+                }
+            
+                span{
+                    color: black;
+                }
+            }
+        }
+    
+        .rectangle{
+            background-color: #ee008c;
+            border: 20px solid white;
+            border-radius: 20px;
+            border-right: 0;
+            border-bottom-right-radius: 0%;
+            border-top-right-radius: 0%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+            .context{
+                text-align: center;
+                font-size: 30px;
+                display: flex;
+                align-items: center;
+                column-gap: 20px;
+                transition: 0.5s ease;
+                
+                h1, h6{
+                    color: white;
+                }
+            
+                span{
+                    color: black;
+                }
+
+                img{
+                    height: 60px;
+                    width: 60px;
+                }
+
+                .square{
+                    height: 50px;
+                    width: 50px;
+                    background-color: red;
+                    border-radius: 50%;
+                    border: 3px solid white;
+                }
+
+                &:hover{
+                    border: 10px solid yellow;
+                    border-radius: 15px;
+                }
+
+                &:active{
+                    border: 10px solid white;
+                    border-radius: 15px;
+                }
+            }
+
+            .context-nohover{
+                text-align: center;
+                font-size: 30px;
+                display: flex;
+                align-items: center;
+                column-gap: 20px;
+                transition: 0.5s ease;
+                
+                h1, h6{
+                    color: white;
+                }
+            
+                span{
+                    color: black;
+                }
+
+                img{
+                    height: 60px;
+                    width: 60px;
+                }                
+            }
+
+        }
+    }
+
+    .square{
+        background-color: #ee008c;
+        border: 20px solid white;
+        border-radius: 20px;
+        width: 30%;
+        height: 420px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom-left-radius: 0%;
+        text-align: center;
+
+        .extraction{
+            font-size: 80px !important;
+        }
+    }
+
+    .rectangle, .square{
+        color: white;
+    }
+}
+
+.centering{
+    margin: 20px auto;
+
+    .modal{
+        border-radius: 10%;
+        z-index: 10;
+        max-width: 100%;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+
+        video{
+            height: 420px;
+            border-radius: 10px;
+        }
+    }
+
+    .table{
+        margin: 0 auto;
+        text-align: center;
+        color: white;        
+
+        .layout-table{
+            height: 300px;
+            overflow-y: auto;
+        }
+
+        .row{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 50px;
+
+            p{
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 204px;
+            }
+        }
+    }
+}

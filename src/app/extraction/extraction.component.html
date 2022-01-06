@@ -1,25 +1,45 @@
-<div *ngIf="buttonPressTime > 0 && buttonPressTime < 48 && isClicked == false">
-  <h1>il numero estratto e' {{numberExtracted}}</h1>
-  <div *ngIf="buttonPressTime == 47">
-    <h2>La lotteria e' conclusa andate in pace</h2>
+<div class="bg">
+  <div class="layout">
+    <div class="column">
+      <div class="no-border-rectangle">
+        <div class="logo">
+          <h1><span>the</span> Space<span>.</span></h1>
+          <h6>Share Passion, Ace Creativity, Enlighten.</h6>
+        </div>    
+      </div>
+      <div class="rectangle">
+        <div *ngIf="extraction.length < 47" class="context" (click)="makeExtraction()">
+          <h1><span>the</span> COUNTER</h1>
+          <img src="../../assets/output-onlinepngtools.png" alt="lottery">
+          <div class="square" *ngIf="isClicked"></div>
+        </div>
+        <div class="context-nohover" *ngIf="extraction.length == 47">
+          <h1><span>the</span> LOTTERIA E' FINITA!</h1>
+          <a type="button" class="button" style="text-decoration: none;" title="Download JSON" [href]="downloadJsonHref" download="downloadLogExtraction.txt">Download Dati Estrazione</a>          
+        </div>     
+      </div>
+    </div> 
+    <div class="square">
+      <div *ngIf="!isClicked && extraction.length > 0;">
+        <h3>Il numero estratto e':</h3>
+        <h1 class="extraction">{{numberExtracted}}</h1>      
+      </div>
+    </div>
+  </div>
+  <div class="centering">
+    <div class="modal" *ngIf="isClicked">
+      <video autoplay>
+        <source src="../../assets/loopextraction.mp4">
+      </video>
+    </div>
+    <div class="table" *ngIf="extraction.length > 2">
+      <div class="layout-table">
+        <div class="row" *ngFor="let extract of extraction">
+          <h5>Estrazione # {{extract.id}}</h5>      
+          <h2>Numero estratto: <b>{{extract.valueNumber}}</b></h2>
+          <p>{{extract.logExtraction}}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<div *ngIf="buttonPressTime < 47">
-  <button (click)="makeExtraction()">Make Extraction</button>
-</div>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Estrazione #</th>
-      <th scope="col">Numero Estratto</th>
-      <th scope="col">Data Estrazione</th>        
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let extract of extraction">
-      <td>{{extract.id}}</td>      
-      <td ><b>{{extract.valueNumber}}</b></td>
-      <td>{{extract.logExtraction}}</td>
-    </tr>
-  </tbody>
-</table>
